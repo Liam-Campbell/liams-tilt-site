@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const galleryItems = [
+  {
+    image: '/images/gallery/gallery-01-slope-clearing.webp',
+    alt: 'Excavator tilt attachment grading steep hillside batter slope in NZ',
+    title: 'Hillside Batter Trimming & Sloping',
+    category: 'Field Operations',
+    description: 'Mini excavator using hydraulic tilt attachment to shape a clean runoff batter on steep rural New Zealand terrain.'
+  },
+  {
+    image: '/images/gallery/gallery-02-tilt-grapple-detail.webp',
+    alt: 'Heavy duty tilt grapple rake tines detail',
+    title: 'Custom Tilt Rake & Grapple Tines',
+    category: 'Custom Engineering',
+    description: 'Precision flame-cut high-tensile steel tines designed for scrub raking and rock sorting with full tilting control.'
+  },
+  {
+    image: '/images/gallery/gallery-03-hydraulic-ram-mount.webp',
+    alt: 'Heavy duty hydraulic tilt ram cylinder mounting',
+    title: 'Protected Hydraulic Ram Mounts',
+    category: 'Engineering Detail',
+    description: 'Reinforced headstock geometry ensuring protected hose routing and maximum holding torque under load.'
+  },
+  {
+    image: '/images/gallery/gallery-04-nz-earthmoving-field.webp',
+    alt: 'Digger working with tilt bucket on New Zealand rural terrain',
+    title: 'Tough Ground Earthmoving',
+    category: 'Field Operations',
+    description: 'Operating in rugged volcanic clay and greywacke soils where durability and solid pin centres prevent excessive wear.'
+  },
+  {
+    image: '/images/gallery/gallery-05-precision-pin-fitment.webp',
+    alt: 'Precision machined excavator pin boss and dipper ear fitment',
+    title: 'Precision Machined Pin Bosses',
+    category: 'Workshop Fabrication',
+    description: 'Bored to exact millimetre tolerances matching factory excavator pins without loose play or chatter.'
+  },
+  {
+    image: '/images/gallery/gallery-06-rugged-grapple-tines.webp',
+    alt: 'Rugged excavator attachment wear package and gussets',
+    title: 'Reinforced Wear Package',
+    category: 'Workshop Fabrication',
+    description: 'Heavy structural web gussets and hardened wear strips built for long service in abrasive ground.'
+  }
+];
+---
+
+<BaseLayout
+  title="In-Action Attachment Gallery | FUTURE EQUIPMENT NZ"
+  description="Explore genuine photographs of Future Equipment excavator tilt attachments, digger buckets, and custom builds working across New Zealand."
+>
+  <section class="section section-surface page-header-section">
+    <div class="container">
+      <span class="eyebrow">Visual Proof</span>
+      <h1 class="page-title">In-Action Gallery</h1>
+      <p class="lead-text page-subtitle">
+        Genuine photos of Future Equipment attachments built in the workshop and put to work on residential, rural, and civil earthmoving sites across New Zealand.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="gallery-grid-section">
+    <div class="container">
+      <div class="gallery-grid">
+        {galleryItems.map((item) => (
+          <div class="gallery-card">
+            <div class="gallery-image-wrap">
+              <picture>
+                <source srcset={item.image} type="image/webp" />
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  class="gallery-img"
+                />
+              </picture>
+              <span class="gallery-tag">{item.category}</span>
+            </div>
+            <div class="gallery-info">
+              <h3 class="gallery-item-title">{item.title}</h3>
+              <p class="gallery-item-desc">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="gallery-cta-banner">
+        <h3>Need an Attachment Built for Your Project?</h3>
+        <p>Get in touch with Liam to confirm machine measurements and discuss your custom equipment needs.</p>
+        <div class="cta-actions">
+          <a href="/quote" class="btn btn-primary">
+            <span>Get a Fitment Quote</span>
+          </a>
+          <a href="tel:+64210000000" class="btn btn-secondary">
+            <span>Call 021 000 0000</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header-section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  .page-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .page-subtitle {
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .gallery-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-steel-grey);
+  }
+
+  .gallery-image-wrap {
+    position: relative;
+    aspect-ratio: 4/3;
+    background-color: var(--color-charcoal-surface);
+    overflow: hidden;
+  }
+
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-card:hover .gallery-img {
+    transform: scale(1.03);
+  }
+
+  .gallery-tag {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(18, 20, 22, 0.9);
+    border: 1px solid var(--color-charcoal-border);
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .gallery-info {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .gallery-item-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
+    color: var(--color-warm-white);
+  }
+
+  .gallery-item-desc {
+    font-size: 0.88rem;
+    color: var(--color-steel-light);
+    line-height: 1.45;
+    margin-bottom: 0;
+  }
+
+  .gallery-cta-banner {
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-top: 3.5rem;
+  }
+
+  .gallery-cta-banner h3 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-cta-banner p {
+    font-size: 1.05rem;
+    color: var(--color-steel-light);
+    max-width: 600px;
+    margin: 0 auto 1.75rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+</style>

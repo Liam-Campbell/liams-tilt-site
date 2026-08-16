@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="About Future Equipment | NZ Excavator Attachment Manufacturing"
+  description="Learn about Future Equipment — practical, direct, and precision attachment manufacturing for New Zealand digger operators. Built to fit. Built to work."
+>
+  <section class="section section-surface page-header-section">
+    <div class="container">
+      <span class="eyebrow">The Business</span>
+      <h1 class="page-title">About Future Equipment</h1>
+      <p class="lead-text page-subtitle">
+        Practical, direct and highly capable attachment manufacturing for New Zealand digger owners, contractors, landscapers and earthmoving operators.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="about-content">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-story-col">
+          <span class="eyebrow">Our Philosophy</span>
+          <h2 class="section-title">Built To Fit. Built To Work.</h2>
+          <p class="lead-text">
+            Future Equipment was founded on a straightforward engineering premise: an excavator attachment should fit your machine precisely the first time, without torching brackets, packing loose washers, or fighting hydraulic hose clearances.
+          </p>
+          <p>
+            Operating heavy machinery on steep New Zealand hillsides, riverbeds, and heavy clay requires attachments built with rugged structural integrity. Mass-produced universal attachments frequently compromise on ear spacing or pin-to-pin geometry, resulting in excessive pin wear and reduced breakout torque.
+          </p>
+          <p>
+            At Future Equipment, we build every hydraulic tilt hitch, digger bucket, and custom attachment to exact excavator dimensions. We work directly with digger owners across both the North and South Islands to provide honest advice, robust fabrication, and dependable support.
+          </p>
+
+          <div class="values-stack">
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="value-text">
+                <h4>Direct Maker Access</h4>
+                <p>You speak directly with the person measuring, cutting, and welding your attachment. No account managers or call centers.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="value-text">
+                <h4>Zero-Slop Fitment Verification</h4>
+                <p>Pin diameters, pin centres, and dipper ear widths are verified prior to production to guarantee true bolt-on compatibility.</p>
+              </div>
+            </div>
+
+            <div class="value-item">
+              <div class="value-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+              <div class="value-text">
+                <h4>New Zealand Working Conditions</h4>
+                <p>Fabricated with high-strength plate and wear protection engineered to handle abrasive basalt, river shingle, and heavy subsoil.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-sidebar-col">
+          <div class="workshop-card">
+            <div class="workshop-img-wrap">
+              <picture>
+                <source srcset="/images/products/custom-builds-engineering.webp" type="image/webp" />
+                <img
+                  src="/images/products/custom-builds-engineering.webp"
+                  alt="Liam fabricating excavator attachment in New Zealand engineering workshop"
+                  width="800"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                  class="workshop-img"
+                />
+              </picture>
+            </div>
+            <div class="workshop-card-body">
+              <span class="card-eyebrow">Workshop Ethos</span>
+              <h3>Precise. Rugged. Premium.</h3>
+              <p>
+                From one-off root rakes for land clearing contractors to high-precision twin ram tilt hitches for civil operators, every attachment represents modern engineering craftsmanship.
+              </p>
+              <div class="direct-contact-banner">
+                <span class="banner-title">Speak With Liam:</span>
+                <a href="tel:+64210000000" class="banner-phone">021 000 0000</a>
+                <span class="banner-sub">Direct Workshop Line · New Zealand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header-section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  .page-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .page-subtitle {
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  @media (min-width: 992px) {
+    .about-grid {
+      grid-template-columns: 1.3fr 1fr;
+    }
+  }
+
+  .about-story-col .lead-text {
+    margin-bottom: 1.25rem;
+  }
+
+  .values-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2.25rem;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 1.25rem;
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+  }
+
+  .value-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .value-text h4 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-warm-white);
+  }
+
+  .value-text p {
+    font-size: 0.88rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+    line-height: 1.45;
+  }
+
+  /* Workshop Sidebar Card */
+  .workshop-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    position: sticky;
+    top: 90px;
+  }
+
+  .workshop-img-wrap {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background-color: var(--color-charcoal-surface);
+  }
+
+  .workshop-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .workshop-card-body {
+    padding: 1.75rem;
+  }
+
+  .card-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .workshop-card-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .workshop-card-body p {
+    font-size: 0.92rem;
+    color: var(--color-steel-light);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .direct-contact-banner {
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .banner-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-steel-grey);
+  }
+
+  .banner-phone {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-orange);
+    text-decoration: none;
+    line-height: 1.1;
+  }
+
+  .banner-sub {
+    font-size: 0.78rem;
+    color: var(--color-steel-light);
+  }
+</style>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const customProducts = [
+  {
+    id: "root-rakes",
+    name: "Heavy-Duty Landscaping & Root Rakes",
+    category: "Custom Builds" as const,
+    intendedUse: "Scrub clearing, root grubbing, debris separation, forestry slash raking, and topsoil aeration without hauling excess dirt.",
+    image: "/images/products/custom-tilt-rake-grapple.webp",
+    imageAlt: "Excavator root rake attachment for land clearing",
+    suitableMachines: "1.5t to 14.0t excavators",
+    configurations: "Custom widths (800mm – 1800mm) and tine spacing (100mm – 250mm) to match your soil and vegetation type",
+    materials: "Flame-cut heavy high-tensile solid tines with reinforced cross-tie bar and heavy box-section backbone",
+    hydraulicReqs: "None (Mechanical mounting to quick hitch or dipper arm)",
+    specs: [
+      { label: "Tine Thickness & Depth", value: "Flame-cut solid steel plate engineered for prying leverage", isConfirmed: true },
+      { label: "Tine Spacing", value: "Customised to client requirement (e.g. 120mm, 150mm, 180mm)", isConfirmed: true },
+      { label: "Pin Diameter", value: "Custom bored to match machine (30mm, 35mm, 40mm, 45mm, 50mm)", isConfirmed: true },
+      { label: "Pin Centres", value: "Factory matched to link geometry", isConfirmed: true },
+      { label: "Dipper / Ear Width", value: "Precision dipper ear spacing with structural side gussets", isConfirmed: true },
+      { label: "Total Attachment Weight", value: "Calculated per tine quantity and machine lifting chart", isConfirmed: false }
+    ]
+  },
+  {
+    id: "tilt-grapple",
+    name: "Tilt Rake & Grapple Combinations",
+    category: "Custom Builds" as const,
+    intendedUse: "Precision log handling, gorse and scrub piling, rock wall placement, and demolition sorting with full hydraulic tilting control.",
+    image: "/images/products/custom-tilt-rake-grapple.webp",
+    imageAlt: "Tilt rake and grapple combination attachment for mini digger",
+    tiltMechanism: "Integrated Heavy-Duty Hydraulic Tilt Headstock with Clamp Cylinder",
+    suitableMachines: "1.7t to 8.0t excavators",
+    configurations: "Direct-mount headstock with integrated hydraulic cylinder, heavy bypass claws, and serrated rake tines",
+    materials: "High-yield alloy steel pivot pins, heavy cylinder rod guards, and abrasion-resistant tine tips",
+    hydraulicReqs: "Dual auxiliary hydraulic circuits (or single circuit with electric diverter valve)",
+    specs: [
+      { label: "Pin Diameter", value: "Precision machined to match excavator dipper (30mm – 45mm)", isConfirmed: true },
+      { label: "Pin Centres", value: "Engineered to maintain full crowd and dumping angles", isConfirmed: true },
+      { label: "Clamping Force", value: "Matched to machine auxiliary hydraulic relief pressure", isConfirmed: false },
+      { label: "Tine Width & Profile", value: "Customised to client handling needs (rock, timber, or vegetation)", isConfirmed: true },
+      { label: "Hose Protection", value: "Internal and guarded hose paths to prevent snagging in brush", isConfirmed: true }
+    ]
+  },
+  {
+    id: "bespoke-builds",
+    name: "Bespoke Attachments & Pin Conversions",
+    category: "Custom Builds" as const,
+    intendedUse: "One-off engineering builds for rare machines, vintage excavators, specialized contractor tools, and dipper arm pin conversions.",
+    image: "/images/products/custom-builds-engineering.webp",
+    imageAlt: "Custom workshop engineering fabrication for excavator attachments",
+    suitableMachines: "All excavator makes and tonnage classes (0.8t to 20t+)",
+    configurations: "Built to sample bucket, technical drawing, or custom on-site dipper measurements",
+    materials: "Client-specified wear packages, custom Hardox/high-tensile plates, and heavy bronze/steel bushings",
+    hydraulicReqs: "Configured to suit excavator auxiliary ports",
+    specs: [
+      { label: "Engineering Process", value: "Direct consultation with Liam before drafting and cutting", isConfirmed: true },
+      { label: "Custom Headstocks", value: "Fabricated to suit non-standard quick hitches or direct pins", isConfirmed: true },
+      { label: "Pin Diameter & Centres", value: "Machined to exact millimetre tolerances", isConfirmed: true },
+      { label: "Lead Times & Pricing", value: "Quoted upon drawing and measurement sign-off", isConfirmed: false }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Custom Excavator Attachments & Builds NZ | FUTURE EQUIPMENT"
+  description="Custom root rakes, tilt grapples, bespoke hitches, and specialized excavator attachments fabricated in New Zealand by Future Equipment."
+>
+  <section class="section section-surface page-header-section">
+    <div class="container">
+      <span class="eyebrow">Custom Engineering</span>
+      <h1 class="page-title">Custom Attachment Builds</h1>
+      <p class="lead-text page-subtitle">
+        Have a specialized earthmoving challenge, unique vegetation clearing requirement, or non-standard excavator hitch geometry? Future Equipment designs and builds bespoke attachments tailored directly to your machine.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="custom-products">
+    <div class="container">
+      <div class="section-intro-bar">
+        <div class="intro-left">
+          <h3>Custom Fabrication Solutions</h3>
+          <p>Explore recent custom builds or discuss your custom attachment concept with Liam.</p>
+        </div>
+        <a href="/quote?product=Custom%20Build" class="btn btn-primary btn-sm">
+          <span>Request Custom Build Quote</span>
+        </a>
+      </div>
+
+      <div class="products-stack">
+        {customProducts.map((prod) => (
+          <ProductCard
+            id={prod.id}
+            name={prod.name}
+            category={prod.category}
+            intendedUse={prod.intendedUse}
+            image={prod.image}
+            imageAlt={prod.imageAlt}
+            tiltMechanism={prod.tiltMechanism}
+            suitableMachines={prod.suitableMachines}
+            configurations={prod.configurations}
+            materials={prod.materials}
+            hydraulicReqs={prod.hydraulicReqs}
+            specs={prod.specs}
+            quoteProductParam={prod.name}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header-section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  .page-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .page-subtitle {
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .section-intro-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  @media (min-width: 768px) {
+    .section-intro-bar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .intro-left h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .intro-left p {
+    font-size: 0.95rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+  }
+
+  .products-stack {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,0 +1,310 @@
+---
+interface SpecItem {
+  label: string;
+  value: string;
+  isConfirmed?: boolean;
+}
+
+interface Props {
+  id: string;
+  name: string;
+  category: 'Tilts' | 'Buckets' | 'Custom Builds';
+  intendedUse: string;
+  image: string;
+  imageAlt: string;
+  tiltMechanism?: string;
+  suitableMachines: string;
+  configurations: string;
+  specs: SpecItem[];
+  materials?: string;
+  hydraulicReqs?: string;
+  quoteProductParam?: string;
+}
+
+const {
+  id,
+  name,
+  category,
+  intendedUse,
+  image,
+  imageAlt,
+  tiltMechanism,
+  suitableMachines,
+  configurations,
+  specs,
+  materials = "High-tensile plate with hardened wear strips (Exact steel grade awaiting owner confirmation)",
+  hydraulicReqs = "Single or dual auxiliary circuit (Flow & pressure confirmed per excavator model)",
+  quoteProductParam = name
+} = Astro.props;
+---
+
+<article class="product-card" id={id}>
+  <div class="product-grid">
+    <!-- Product Image & Category Badge -->
+    <div class="product-media-col">
+      <div class="product-image-wrap">
+        <picture>
+          <source srcset={image} type="image/webp" />
+          <img
+            src={image}
+            alt={imageAlt}
+            class="product-image"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <span class="category-badge">{category}</span>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="media-actions">
+        <a href={`/quote?product=${encodeURIComponent(quoteProductParam)}`} class="btn btn-primary btn-sm btn-block">
+          <span>Request Fitment Quote</span>
+        </a>
+        <a href="#fitment-guide" class="btn btn-dark btn-sm btn-block">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+          </svg>
+          <span>Fitment Sheet / Guide</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Product Details & Specifications -->
+    <div class="product-info-col">
+      <div class="product-header">
+        <h3 class="product-title">{name}</h3>
+        <p class="intended-use"><strong>Intended Use:</strong> {intendedUse}</p>
+      </div>
+
+      <!-- Engineering Fitment Specs Table -->
+      <div class="specs-block">
+        <h4 class="specs-heading">Fitment & Engineering Parameters</h4>
+        
+        <div class="table-responsive">
+          <table class="spec-table" aria-label={`Specifications for ${name}`}>
+            <thead>
+              <tr>
+                <th scope="col">Parameter</th>
+                <th scope="col">Specification / Fitting Range</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tiltMechanism && (
+                <tr>
+                  <td><strong>Tilt Mechanism</strong></td>
+                  <td>{tiltMechanism}</td>
+                  <td><span class="badge badge-confirmed">Confirmed</span></td>
+                </tr>
+              )}
+              <tr>
+                <td><strong>Suitable Machine Range</strong></td>
+                <td>{suitableMachines}</td>
+                <td><span class="badge badge-confirmed">Custom Fit</span></td>
+              </tr>
+              <tr>
+                <td><strong>Available Configurations</strong></td>
+                <td>{configurations}</td>
+                <td><span class="badge badge-confirmed">Built to Order</span></td>
+              </tr>
+              {specs.map((s) => (
+                <tr>
+                  <td><strong>{s.label}</strong></td>
+                  <td>{s.value}</td>
+                  <td>
+                    {s.isConfirmed ? (
+                      <span class="badge badge-confirmed">Confirmed</span>
+                    ) : (
+                      <span class="badge badge-pending" title="Matched to specific machine measurements on order">Per Machine Order</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Technical Fabrication Notes -->
+      <div class="fabrication-notes">
+        <div class="note-box">
+          <span class="note-title">Materials & Wear Protection:</span>
+          <p class="note-desc">{materials}</p>
+        </div>
+        <div class="note-box">
+          <span class="note-title">Hydraulic Setup:</span>
+          <p class="note-desc">{hydraulicReqs}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    margin-bottom: 2.5rem;
+    transition: border-color var(--transition-normal);
+  }
+
+  .product-card:hover {
+    border-color: var(--color-steel-grey);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 992px) {
+    .product-grid {
+      grid-template-columns: 360px 1fr;
+    }
+  }
+
+  /* Product Media Column */
+  .product-media-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .product-image-wrap {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: var(--color-charcoal-surface);
+    aspect-ratio: 4/3;
+    border: 1px solid var(--color-charcoal-border);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-normal);
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.02);
+  }
+
+  .category-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(18, 20, 22, 0.9);
+    border: 1px solid var(--color-charcoal-border);
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .media-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  /* Product Info Column */
+  .product-info-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .product-title {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    color: var(--color-warm-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .intended-use {
+    font-size: 1rem;
+    color: var(--color-warm-white-dim);
+  }
+
+  .intended-use strong {
+    color: var(--color-warm-white);
+  }
+
+  /* Specs Block */
+  .specs-heading {
+    font-size: 1.15rem;
+    font-family: var(--font-heading);
+    color: var(--color-steel-light);
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .table-responsive {
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Fabrication Notes */
+  .fabrication-notes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-charcoal-border-subtle);
+  }
+
+  @media (min-width: 640px) {
+    .fabrication-notes {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .note-box {
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border-subtle);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .note-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-orange);
+    margin-bottom: 0.25rem;
+  }
+
+  .note-desc {
+    font-size: 0.85rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+    line-height: 1.45;
+  }
+</style>

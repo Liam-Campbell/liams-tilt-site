@@ -1,0 +1,406 @@
+---
+// Hero.astro
+---
+
+<section class="hero-section" aria-label="Hero Introduction">
+  <!-- Decorative Media Layer (Poster + Video Loop) -->
+  <div class="hero-media-wrapper">
+    <!-- Immediate First-Frame Poster (Prevent Layout Shift & Respect Reduced Motion) -->
+    <picture>
+      <source srcset="/images/hero-tilts-poster.webp" type="image/webp" />
+      <img
+        src="/images/hero-tilts-poster.jpg"
+        alt="Excavator tilt grapple attachment working on steep New Zealand rural hill terrain"
+        class="hero-poster"
+        id="hero-poster"
+        width="1920"
+        height="1080"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+
+    <!-- Edge-to-edge Video (Loaded intelligently on broadband/desktop) -->
+    <video
+      class="hero-video"
+      id="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/hero-tilts-poster.webp"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <source src="/media/hero-tilts.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Dark Left-to-Right Readability Overlay (Preserves machinery on right) -->
+    <div class="hero-gradient-overlay" aria-hidden="true"></div>
+  </div>
+
+  <!-- Hero Content Layer -->
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="hero-eyebrow">
+        <span class="eyebrow-line" aria-hidden="true"></span>
+        EXCAVATOR ATTACHMENTS · NEW ZEALAND
+      </span>
+
+      <h1 class="hero-title">
+        <span class="title-line">Built to fit.</span>
+        <span class="title-line title-highlight">Built to work.</span>
+      </h1>
+
+      <p class="hero-description">
+        Custom tilt attachments and digger buckets made around your machine and the work you need it to do.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/quote" class="btn btn-primary btn-lg hero-btn-primary">
+          <span>Get a fitment quote</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+
+        <a href="/tilts" class="btn btn-secondary btn-lg hero-btn-secondary">
+          <span>View attachments</span>
+        </a>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="hero-specs-bar" aria-label="Key Capabilities">
+        <div class="spec-item">
+          <span class="spec-value">Direct Maker</span>
+          <span class="spec-label">NZ Fabricated</span>
+        </div>
+        <div class="spec-separator" aria-hidden="true">/</div>
+        <div class="spec-item">
+          <span class="spec-value">Exact Fit</span>
+          <span class="spec-label">Matched to Pins & Ears</span>
+        </div>
+        <div class="spec-separator" aria-hidden="true">/</div>
+        <div class="spec-item">
+          <span class="spec-value">NZ-Wide</span>
+          <span class="spec-label">Freight & Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Accessible Motion Toggle Button -->
+  <div class="motion-controls">
+    <button
+      type="button"
+      id="motion-toggle-btn"
+      class="motion-btn"
+      aria-label="Pause background video"
+      aria-pressed="false"
+    >
+      <span class="motion-icon motion-pause" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+          <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+        </svg>
+      </span>
+      <span class="motion-icon motion-play" aria-hidden="true" style="display: none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </span>
+      <span class="motion-label" id="motion-label-text">Pause motion</span>
+    </button>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: calc(100vh - 65px);
+    min-height: calc(100svh - 65px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--color-charcoal);
+  }
+
+  /* Media Wrapper */
+  .hero-media-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-poster,
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center; /* Preserves machinery on the right */
+  }
+
+  .hero-poster {
+    z-index: 1;
+    transition: opacity var(--transition-normal);
+  }
+
+  .hero-video {
+    z-index: 2;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+
+  .hero-video.is-loaded {
+    opacity: 1;
+  }
+
+  /* Dark Left-to-Right Overlay */
+  .hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    background: linear-gradient(
+      to right,
+      rgba(18, 20, 22, 0.96) 0%,
+      rgba(18, 20, 22, 0.90) 38%,
+      rgba(18, 20, 22, 0.55) 68%,
+      rgba(18, 20, 22, 0.22) 100%
+    );
+  }
+
+  @media (max-width: 768px) {
+    .hero-gradient-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(18, 20, 22, 0.92) 0%,
+        rgba(18, 20, 22, 0.80) 60%,
+        rgba(18, 20, 22, 0.95) 100%
+      );
+    }
+  }
+
+  /* Hero Content */
+  .hero-container {
+    position: relative;
+    z-index: 4;
+    padding-top: clamp(2.5rem, 5vw, 4.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+
+  .hero-content {
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-heading);
+    font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-orange);
+    margin-bottom: 1rem;
+  }
+
+  .eyebrow-line {
+    display: inline-block;
+    width: 20px;
+    height: 3px;
+    background-color: var(--color-orange);
+  }
+
+  .hero-title {
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .title-highlight {
+    color: var(--color-warm-white);
+  }
+
+  .hero-description {
+    font-size: clamp(1.1rem, 1.4vw + 0.3rem, 1.35rem);
+    line-height: 1.55;
+    color: var(--color-warm-white-dim);
+    margin-bottom: 2rem;
+    max-width: 580px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .hero-btn-primary {
+    box-shadow: 0 4px 14px rgba(242, 100, 34, 0.35);
+  }
+
+  /* Quick Spec Bar */
+  .hero-specs-bar {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-charcoal-border);
+  }
+
+  .spec-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spec-value {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-warm-white);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  .spec-label {
+    font-size: 0.8rem;
+    color: var(--color-steel-grey);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .spec-separator {
+    color: var(--color-charcoal-border);
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 520px) {
+    .hero-specs-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .spec-separator {
+      display: none;
+    }
+  }
+
+  /* Accessible Motion Controls */
+  .motion-controls {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 5;
+  }
+
+  .motion-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    background-color: rgba(18, 20, 22, 0.8);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-steel-light);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: all var(--transition-fast);
+  }
+
+  .motion-btn:hover {
+    color: var(--color-warm-white);
+    border-color: var(--color-steel-grey);
+    background-color: rgba(18, 20, 22, 0.95);
+  }
+
+  .motion-btn:focus-visible {
+    outline: 2px solid var(--color-orange);
+  }
+</style>
+
+<script>
+  // Progressive, accessible hero video loader & motion controller
+  const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+  const poster = document.getElementById('hero-poster') as HTMLImageElement | null;
+  const motionBtn = document.getElementById('motion-toggle-btn');
+  const motionLabel = document.getElementById('motion-label-text');
+  const pauseIcon = motionBtn?.querySelector('.motion-pause') as HTMLElement | null;
+  const playIcon = motionBtn?.querySelector('.motion-play') as HTMLElement | null;
+
+  // Check user motion preferences & connection speed
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = navigator as any;
+  const isSlowConnection = nav.connection && (nav.connection.saveData || nav.connection.effectiveType === '2g' || nav.connection.effectiveType === '3g');
+  const isMobileScreen = window.innerWidth < 768;
+
+  if (video && motionBtn) {
+    // If reduced motion, slow connection, or small mobile, stay on high-res poster and do not autoplay
+    if (prefersReducedMotion || isSlowConnection || isMobileScreen) {
+      video.removeAttribute('autoplay');
+      video.pause();
+      if (pauseIcon) pauseIcon.style.display = 'none';
+      if (playIcon) playIcon.style.display = 'inline-block';
+      if (motionLabel) motionLabel.textContent = 'Play motion';
+      motionBtn.setAttribute('aria-label', 'Play background video');
+      motionBtn.setAttribute('aria-pressed', 'true');
+    } else {
+      // Attempt autoplay on desktop with good connection
+      video.play().then(() => {
+        video.classList.add('is-loaded');
+      }).catch(() => {
+        // Fallback gracefully to poster if autoplay blocked
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (playIcon) playIcon.style.display = 'inline-block';
+        if (motionLabel) motionLabel.textContent = 'Play motion';
+        motionBtn.setAttribute('aria-label', 'Play background video');
+        motionBtn.setAttribute('aria-pressed', 'true');
+      });
+    }
+
+    // Toggle button handler
+    motionBtn.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().then(() => {
+          video.classList.add('is-loaded');
+          if (pauseIcon) pauseIcon.style.display = 'inline-block';
+          if (playIcon) playIcon.style.display = 'none';
+          if (motionLabel) motionLabel.textContent = 'Pause motion';
+          motionBtn.setAttribute('aria-label', 'Pause background video');
+          motionBtn.setAttribute('aria-pressed', 'false');
+        });
+      } else {
+        video.pause();
+        if (pauseIcon) pauseIcon.style.display = 'none';
+        if (playIcon) playIcon.style.display = 'inline-block';
+        if (motionLabel) motionLabel.textContent = 'Play motion';
+        motionBtn.setAttribute('aria-label', 'Play background video');
+        motionBtn.setAttribute('aria-pressed', 'true');
+      }
+    });
+  }
+</script>

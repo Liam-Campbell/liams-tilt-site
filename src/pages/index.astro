@@ -1,0 +1,747 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const machineBrands = [
+  { name: 'Kubota', models: 'U17, U25, U35, KX040, KX057' },
+  { name: 'Yanmar', models: 'ViO17, ViO25, ViO35, ViO55, SV08' },
+  { name: 'Hitachi', models: 'ZX17U, ZX26U, ZX33U, ZX55U, ZX85US' },
+  { name: 'Caterpillar', models: '301.5, 301.7, 302.7, 303.5, 305.5' },
+  { name: 'Kobelco', models: 'SK17SR, SK28SR, SK35SR, SK55SRX' },
+  { name: 'Takeuchi', models: 'TB216, TB225, TB235, TB250, TB260' },
+  { name: 'Komatsu', models: 'PC18MR, PC30MR, PC35MR, PC55MR' },
+  { name: 'Sumitomo', models: 'SH35U, SH55U, SH75X, SH135' }
+];
+
+const galleryHighlights = [
+  {
+    image: '/images/gallery/gallery-01-slope-clearing.webp',
+    alt: 'Excavator tilt attachment grading steep hillside batter slope in NZ',
+    caption: 'Batter Trimming & Slope Grading'
+  },
+  {
+    image: '/images/gallery/gallery-02-tilt-grapple-detail.webp',
+    alt: 'Heavy duty tilt grapple rake tines detail',
+    caption: 'Tilt Rake & Grapple Fabrication'
+  },
+  {
+    image: '/images/gallery/gallery-03-hydraulic-ram-mount.webp',
+    alt: 'Heavy duty hydraulic tilt ram cylinder mounting',
+    caption: 'Protected Hydraulic Ram Geometry'
+  },
+  {
+    image: '/images/gallery/gallery-04-nz-earthmoving-field.webp',
+    alt: 'Digger working with tilt bucket on New Zealand rural terrain',
+    caption: 'Rugged NZ Terrain Performance'
+  }
+];
+---
+
+<BaseLayout
+  title="FUTURE EQUIPMENT | Excavator Tilt Attachments & Digger Buckets NZ"
+  description="Precision excavator tilt attachments and heavy-duty digger buckets built for New Zealand contractors and owner-operators. Built to fit. Built to work."
+>
+  <!-- Edge-to-Edge Hero with Video & Motion Controls -->
+  <Hero />
+
+  <!-- Credibility & Positioning Intro Section -->
+  <section class="section section-surface" id="credibility">
+    <div class="container">
+      <div class="credibility-grid">
+        <div class="credibility-lead">
+          <span class="eyebrow">Practical NZ Manufacturing</span>
+          <h2 class="credibility-title">Built For The Rigours Of New Zealand Ground</h2>
+          <p class="lead-text">
+            Standard off-the-shelf attachments often sacrifice pin geometry, weight distribution, or hydraulic clearance. Future Equipment manufactures tilt attachments and digger buckets directly around your specific machine model and daily workload.
+          </p>
+          <p>
+            Whether you operate a 1.7-tonne mini digger in tight residential driveways or a 6-tonne machine shaping rural farm batters, every piece of equipment is fabricated with heavy plate and precision-matched pin centres for long service life.
+          </p>
+        </div>
+
+        <div class="credibility-stats">
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Custom Fitment Verified</span>
+            <p class="stat-desc">Every unit checked against your excavator pin diameter, pin centres, and dipper width.</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">Direct</span>
+            <span class="stat-label">Workshop Communication</span>
+            <p class="stat-desc">Speak directly with the fabricator building your equipment — no middlemen or sales scripts.</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">NZ Steel</span>
+            <span class="stat-label">Heavy-Duty Fabrication</span>
+            <p class="stat-desc">High-tensile plate and wear-resistant components built for volcanic rock, clay, and gravel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories Section -->
+  <section class="section" id="categories">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="eyebrow">Attachment Categories</span>
+        <h2 class="section-title">Engineered For Capability</h2>
+        <p class="section-subtitle">
+          Explore our primary equipment lines. Every attachment is custom-configured to your machine's hitch requirements and hydraulic setup.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3">
+        <!-- Tilts Category Card -->
+        <div class="card category-card">
+          <div class="cat-image-wrap">
+            <picture>
+              <source srcset="/images/products/twin-ram-tilt-hitch.webp" type="image/webp" />
+              <img
+                src="/images/products/twin-ram-tilt-hitch.webp"
+                alt="Hydraulic tilt hitch attachment for excavators"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                class="cat-img"
+              />
+            </picture>
+            <span class="cat-tag">Tilt Attachments</span>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-title">Hydraulic Tilt Hitches</h3>
+            <p class="cat-desc">
+              Twin-ram and single-ram hydraulic tilt hitches providing clean angling for batters, trenches, and tricky site grading.
+            </p>
+            <ul class="cat-points">
+              <li>Direct pin-on or quick hitch mounting</li>
+              <li>Protected cylinder hose routing</li>
+              <li>Optimised low-profile pin-to-pin height</li>
+            </ul>
+            <a href="/tilts" class="btn btn-secondary btn-sm cat-cta">
+              <span>View Tilts Catalog</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Buckets Category Card -->
+        <div class="card category-card">
+          <div class="cat-image-wrap">
+            <picture>
+              <source srcset="/images/products/heavy-duty-buckets.webp" type="image/webp" />
+              <img
+                src="/images/products/heavy-duty-buckets.webp"
+                alt="Heavy duty wide mud bucket and digging buckets"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                class="cat-img"
+              />
+            </picture>
+            <span class="cat-tag">Digger Buckets</span>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-title">Digger Buckets</h3>
+            <p class="cat-desc">
+              Wide clean-up/mud buckets, trenching buckets, and rock buckets built with heavy cutting edges and side cutters.
+            </p>
+            <ul class="cat-points">
+              <li>Hardened wear strips and cutting edges</li>
+              <li>Tapered profiles for clean material discharge</li>
+              <li>Custom widths from 200mm to 1800mm</li>
+            </ul>
+            <a href="/buckets" class="btn btn-secondary btn-sm cat-cta">
+              <span>View Buckets Catalog</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Custom Builds Category Card -->
+        <div class="card category-card">
+          <div class="cat-image-wrap">
+            <picture>
+              <source srcset="/images/products/custom-tilt-rake-grapple.webp" type="image/webp" />
+              <img
+                src="/images/products/custom-tilt-rake-grapple.webp"
+                alt="Custom excavator attachment fabrication in workshop"
+                width="800"
+                height="600"
+                loading="lazy"
+                decoding="async"
+                class="cat-img"
+              />
+            </picture>
+            <span class="cat-tag">Custom Builds</span>
+          </div>
+          <div class="cat-body">
+            <h3 class="cat-title">Custom Attachment Builds</h3>
+            <p class="cat-desc">
+              Specialized root rakes, tilt grapples, ripper tines, and bespoke brackets tailored to unique contractor requirements.
+            </p>
+            <ul class="cat-points">
+              <li>Direct engineering consultation</li>
+              <li>Custom tine spacing and heavy-duty gussets</li>
+              <li>Built to match uncommon pin geometry</li>
+            </ul>
+            <a href="/custom-builds" class="btn btn-secondary btn-sm cat-cta">
+              <span>View Custom Builds</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- "Made for Your Machine" Fitment Section -->
+  <section class="section section-surface" id="machine-fitment">
+    <div class="container">
+      <div class="fitment-split">
+        <div class="fitment-text">
+          <span class="eyebrow">Precision Compatibility</span>
+          <h2 class="section-title">Made For Your Machine</h2>
+          <p class="lead-text">
+            No universal loose-fit brackets. Future Equipment fabricates mounts to match the exact dipper ear width, pin centres, and pin diameter of your excavator make.
+          </p>
+          <p>
+            We supply attachments for all major Japanese, American, and European excavators operating across New Zealand, from micro machines up to 20-tonne civil diggers.
+          </p>
+
+          <div class="fitment-cta-box">
+            <p><strong>Operating an uncommon hitch or vintage machine?</strong></p>
+            <p>Provide your pin diameter and ear measurements in our quote builder, and we will confirm fitment before cutting steel.</p>
+            <a href="/quote" class="btn btn-primary btn-sm">
+              <span>Check Fitment For My Machine</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="brands-grid">
+          {machineBrands.map((brand) => (
+            <div class="brand-badge-card">
+              <span class="brand-title">{brand.name}</span>
+              <span class="brand-models">{brand.models}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- In-Action Gallery Section -->
+  <section class="section" id="gallery-preview">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="eyebrow">Proven on Site</span>
+        <h2 class="section-title">In-Action Across New Zealand</h2>
+        <p class="section-subtitle">
+          Real equipment working in real New Zealand soil conditions, forestry blocks, and residential sub-divisions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2">
+        {galleryHighlights.map((item) => (
+          <div class="gallery-item-card">
+            <div class="gallery-img-container">
+              <picture>
+                <source srcset={item.image} type="image/webp" />
+                <img
+                  src={item.image}
+                  alt={item.alt}
+                  width="900"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  class="gallery-image"
+                />
+              </picture>
+              <div class="gallery-caption-overlay">
+                <span class="gallery-caption-text">{item.caption}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="gallery-more-btn-wrap">
+        <a href="/gallery" class="btn btn-secondary">
+          <span>View Full Photo Gallery</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3-Step Process Section -->
+  <section class="section section-dark section-angled-top" id="how-it-works">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="eyebrow">Simple & Direct Ordering</span>
+        <h2 class="section-title">How We Work</h2>
+        <p class="section-subtitle">
+          From first measurement to on-site delivery, our process guarantees a bolt-on fit first time.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-badge">01</div>
+          <h3 class="step-heading">Tell Us Your Machine</h3>
+          <p class="step-body">
+            Provide your digger make, model, tonnage, and the type of work you perform. Include your pin diameter, pin centres, and dipper width if known.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">02</div>
+          <h3 class="step-heading">Confirm The Fitment</h3>
+          <p class="step-body">
+            Liam reviews your machine specifications and confirms exact pin geometry, hydraulic requirements, and delivery schedule with you directly.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-badge">03</div>
+          <h3 class="step-heading">Build & Deliver</h3>
+          <p class="step-body">
+            We fabricate your attachment with high-grade steel, conduct quality testing, and dispatch directly to your yard or job site anywhere in New Zealand.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Maker / Workshop Section -->
+  <section class="section section-surface" id="maker">
+    <div class="container">
+      <div class="maker-grid">
+        <div class="maker-image-wrap">
+          <picture>
+            <source srcset="/images/products/custom-builds-engineering.webp" type="image/webp" />
+            <img
+              src="/images/products/custom-builds-engineering.webp"
+              alt="Liam fabricating excavator attachment in New Zealand engineering workshop"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="maker-img"
+            />
+          </picture>
+          <div class="maker-badge">
+            <span>Direct Workshop Access</span>
+          </div>
+        </div>
+
+        <div class="maker-content">
+          <span class="eyebrow">The Maker</span>
+          <h2 class="section-title">No Sales Reps. Just Honest Fabrication.</h2>
+          <p class="lead-text">
+            When you contact Future Equipment, you speak directly with Liam.
+          </p>
+          <p>
+            We understand the frustration of attachments that chatter on the pins, foul on the quick hitch, or fail to curl properly. That's why every build is measured with precision and fabricated to withstand the heavy wear of New Zealand earthmoving.
+          </p>
+          <div class="maker-action-wrap">
+            <a href="/about" class="btn btn-secondary">
+              <span>Read About Future Equipment</span>
+            </a>
+            <a href="tel:+64210000000" class="btn btn-dark">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>Call Liam: 021 000 0000</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Credibility Section */
+  .credibility-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .credibility-grid {
+      grid-template-columns: 1.2fr 1fr;
+    }
+  }
+
+  .credibility-title {
+    margin-bottom: 1rem;
+  }
+
+  .credibility-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-left: 4px solid var(--color-orange);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+    transition: transform var(--transition-fast);
+  }
+
+  .stat-card:hover {
+    transform: translateX(4px);
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--color-orange);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-label {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--color-warm-white);
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-desc {
+    font-size: 0.88rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+    line-height: 1.45;
+  }
+
+  /* Category Cards */
+  .category-card {
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .cat-image-wrap {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background-color: var(--color-charcoal-surface);
+  }
+
+  .cat-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .category-card:hover .cat-img {
+    transform: scale(1.03);
+  }
+
+  .cat-tag {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    background-color: rgba(18, 20, 22, 0.9);
+    border: 1px solid var(--color-charcoal-border);
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .cat-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .cat-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cat-desc {
+    font-size: 0.92rem;
+    color: var(--color-steel-light);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .cat-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cat-points li {
+    font-size: 0.85rem;
+    color: var(--color-warm-white-dim);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cat-points li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-orange);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  .cat-cta {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  /* Fitment Section */
+  .fitment-split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .fitment-split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .fitment-cta-box {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+    margin-top: 1.75rem;
+  }
+
+  .fitment-cta-box p {
+    font-size: 0.9rem;
+    color: var(--color-warm-white-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .fitment-cta-box strong {
+    color: var(--color-warm-white);
+  }
+
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .brands-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .brand-badge-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .brand-badge-card:hover {
+    border-color: var(--color-orange);
+  }
+
+  .brand-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-warm-white);
+    letter-spacing: 0.03em;
+  }
+
+  .brand-models {
+    font-size: 0.78rem;
+    color: var(--color-steel-grey);
+    line-height: 1.35;
+  }
+
+  /* Gallery Highlights */
+  .gallery-item-card {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-charcoal-border);
+    background-color: var(--color-charcoal-surface);
+  }
+
+  .gallery-img-container {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+  }
+
+  .gallery-item-card:hover .gallery-image {
+    transform: scale(1.03);
+  }
+
+  .gallery-caption-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(18, 20, 22, 0.95), transparent);
+  }
+
+  .gallery-caption-text {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-warm-white);
+    letter-spacing: 0.03em;
+  }
+
+  .gallery-more-btn-wrap {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  /* 3 Steps */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .step-card {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    padding: 2rem 1.75rem;
+    position: relative;
+  }
+
+  .step-badge {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-orange);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+
+  .step-heading {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .step-body {
+    font-size: 0.92rem;
+    color: var(--color-steel-light);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  /* Maker Section */
+  .maker-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (min-width: 992px) {
+    .maker-grid {
+      grid-template-columns: 1fr 1.2fr;
+    }
+  }
+
+  .maker-image-wrap {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-charcoal-border);
+    aspect-ratio: 4/3;
+  }
+
+  .maker-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .maker-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background-color: rgba(18, 20, 22, 0.92);
+    border: 1px solid var(--color-charcoal-border);
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .maker-action-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+</style>

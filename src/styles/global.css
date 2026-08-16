@@ -1,0 +1,464 @@
+/* ==========================================================================
+   FUTURE EQUIPMENT — GLOBAL DESIGN SYSTEM & STYLES
+   Industrial engineering aesthetic: precise, rugged, high-contrast, premium.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Palette */
+  --color-charcoal: #121416;
+  --color-charcoal-dark: #0B0D0E;
+  --color-charcoal-surface: #181B1E;
+  --color-charcoal-card: #1E2226;
+  --color-charcoal-border: #2C3238;
+  --color-charcoal-border-subtle: #23282D;
+
+  --color-warm-white: #F2F0E9;
+  --color-warm-white-dim: #DCD8CD;
+  --color-steel-grey: #858B8F;
+  --color-steel-light: #B4B9BD;
+  --color-steel-dark: #40464B;
+
+  --color-orange: #F26422;
+  --color-orange-hover: #D85315;
+  --color-orange-subtle: rgba(242, 100, 34, 0.12);
+  --color-orange-border: rgba(242, 100, 34, 0.35);
+
+  --color-danger: #E03E3E;
+  --color-success: #2E9B56;
+
+  /* Typography Tokens */
+  --font-heading: 'Barlow Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+  --space-4xl: 6rem;
+
+  /* Layout */
+  --container-max: 1280px;
+  --container-narrow: 960px;
+  --container-padding: 1.25rem;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Geometry & Radii (Precise, rugged, subtle 2-4px radii, never rounded pills) */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+}
+
+/* Base Reset & Document Setup */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-warm-white);
+  background-color: var(--color-charcoal);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-charcoal);
+  color: var(--color-warm-white);
+  overflow-x: hidden;
+}
+
+/* Focus Indicator (High-contrast accessible focus ring) */
+:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-orange);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: var(--radius-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--color-warm-white);
+  font-weight: 800;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw + 1rem, 4.75rem);
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw + 0.5rem, 3.25rem);
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2vw + 0.2rem, 1.85rem);
+}
+
+h4 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+p {
+  color: var(--color-warm-white-dim);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+.lead-text {
+  font-size: clamp(1.05rem, 1.2vw + 0.3rem, 1.25rem);
+  color: var(--color-warm-white);
+  line-height: 1.6;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  margin-bottom: 0.75rem;
+}
+
+.eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  background-color: var(--color-orange);
+}
+
+/* Links & Interactive Elements */
+a {
+  color: var(--color-warm-white);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-orange);
+}
+
+/* Buttons (Modern Industrial - Rectangular with crisp 2-4px radii, high contrast) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.65rem;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  min-height: 48px; /* Accessible touch target */
+}
+
+.btn-primary {
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  border-color: var(--color-orange);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-warm-white);
+  border-color: var(--color-steel-grey);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-warm-white);
+  color: var(--color-warm-white);
+  transform: translateY(-1px);
+}
+
+.btn-dark {
+  background-color: var(--color-charcoal-card);
+  color: var(--color-warm-white);
+  border-color: var(--color-charcoal-border);
+}
+
+.btn-dark:hover {
+  background-color: var(--color-charcoal-surface);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+}
+
+.btn-sm {
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  min-height: 38px;
+}
+
+.btn-lg {
+  font-size: 1.3rem;
+  padding: 1rem 2.25rem;
+  min-height: 54px;
+}
+
+/* Section Containers & Layout */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-top: clamp(3.5rem, 6vw, 6rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+  position: relative;
+}
+
+.section-surface {
+  background-color: var(--color-charcoal-surface);
+}
+
+.section-dark {
+  background-color: var(--color-charcoal-dark);
+}
+
+/* Subtle Angled Section Separator (referencing tilt kinematics) */
+.section-angled-top {
+  position: relative;
+}
+
+.section-angled-top::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background-color: inherit;
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+  pointer-events: none;
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.section-header.text-center {
+  text-align: center;
+}
+
+.section-header.text-center .eyebrow {
+  justify-content: center;
+}
+
+.section-header.text-center .eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  background-color: var(--color-orange);
+}
+
+.section-title {
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  max-width: 680px;
+  color: var(--color-steel-light);
+}
+
+.section-header.text-center .section-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Engineering Cards (Solid, structural, crisp) */
+.card {
+  background-color: var(--color-charcoal-card);
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+}
+
+.card:hover {
+  border-color: var(--color-steel-grey);
+  transform: translateY(-2px);
+}
+
+/* Status / Confirmation Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-pending {
+  background-color: rgba(133, 139, 143, 0.15);
+  color: var(--color-steel-light);
+  border: 1px solid var(--color-steel-dark);
+}
+
+.badge-confirmed {
+  background-color: rgba(242, 100, 34, 0.15);
+  color: var(--color-orange);
+  border: 1px solid var(--color-orange-border);
+}
+
+/* Responsive Grid Utilities */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(1, 1fr); }
+
+@media (min-width: 640px) {
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 992px) {
+  .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Table Design (Clear technical engineering fitment tables) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+  min-width: 580px;
+}
+
+.spec-table th {
+  background-color: var(--color-charcoal-surface);
+  color: var(--color-warm-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  border-bottom: 2px solid var(--color-charcoal-border);
+}
+
+.spec-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-charcoal-border-subtle);
+  color: var(--color-warm-white-dim);
+}
+
+.spec-table tr:last-child td {
+  border-bottom: none;
+}
+
+.spec-table tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.015);
+}
+
+.spec-table .highlight {
+  color: var(--color-orange);
+  font-weight: 600;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

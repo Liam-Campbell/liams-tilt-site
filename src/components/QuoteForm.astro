@@ -1,0 +1,538 @@
+---
+// QuoteForm.astro
+---
+
+<div class="quote-wrapper" id="quote-form-container">
+  <!-- Fitment Measurement Helper Box -->
+  <div class="measurement-guide-banner" id="fitment-guide">
+    <div class="guide-header">
+      <span class="guide-badge">Precision Fitment</span>
+      <h3 class="guide-title">How To Measure Your Machine & Hitch</h3>
+      <p class="guide-intro">
+        Future Equipment attachments are precision-built to your exact machine geometry. Measuring your pin diameter, pin centres, and dipper ear width ensures 100% bolt-on compatibility without modification.
+      </p>
+    </div>
+
+    <div class="measure-grid">
+      <div class="measure-card">
+        <div class="measure-num">1</div>
+        <div class="measure-details">
+          <h4>Pin Diameter (A)</h4>
+          <p>Measure the outside diameter of your excavator bucket/hitch mounting pins with callipers (in millimetres, e.g. 30mm, 35mm, 45mm).</p>
+        </div>
+      </div>
+
+      <div class="measure-card">
+        <div class="measure-num">2</div>
+        <div class="measure-details">
+          <h4>Pin Centres (B)</h4>
+          <p>Measure the centre-to-centre distance between the front pin and rear pin on your dipper/quick hitch (in millimetres).</p>
+        </div>
+      </div>
+
+      <div class="measure-card">
+        <div class="measure-num">3</div>
+        <div class="measure-details">
+          <h4>Dipper / Ear Width (C)</h4>
+          <p>Measure the inside width between the mounting ears (or dipper arm bushing width) where the hitch installs.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="disclaimer-alert">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span>
+        <strong>Notice:</strong> Submitting this quote form initiates a fitment verification review by Liam. It does not constitute automated engineering sign-off or an instant purchase obligation.
+      </span>
+    </div>
+  </div>
+
+  <!-- Interactive Form -->
+  <form class="quote-form" id="future-quote-form" action="#" method="POST">
+    <div class="form-section-title">
+      <span class="step-indicator">Step 1</span>
+      <h3>Contact & Location Details</h3>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="contact-name">Your Full Name <span class="req">*</span></label>
+        <input type="text" id="contact-name" name="name" required placeholder="e.g. Liam Smith" class="form-input" autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="business-name">Business / Trading Name</label>
+        <input type="text" id="business-name" name="business_name" placeholder="e.g. High Country Earthmoving Ltd" class="form-input" autocomplete="organization" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone-number">Phone Number <span class="req">*</span></label>
+        <input type="tel" id="phone-number" name="phone" required placeholder="e.g. 021 123 4567" class="form-input" autocomplete="tel" />
+      </div>
+
+      <div class="form-group">
+        <label for="email-address">Email Address <span class="req">*</span></label>
+        <input type="email" id="email-address" name="email" required placeholder="e.g. liam@example.co.nz" class="form-input" autocomplete="email" />
+      </div>
+
+      <div class="form-group full-width">
+        <label for="nz-region">NZ Town or Region <span class="req">*</span></label>
+        <select id="nz-region" name="nz_region" required class="form-input form-select">
+          <option value="" disabled selected>Select your region in New Zealand</option>
+          <option value="Northland">Northland</option>
+          <option value="Auckland">Auckland</option>
+          <option value="Waikato">Waikato (Hamilton / Coromandel / Taupo)</option>
+          <option value="Bay of Plenty">Bay of Plenty (Tauranga / Rotorua / Whakatane)</option>
+          <option value="Gisborne">Gisborne</option>
+          <option value="Hawke's Bay">Hawke's Bay (Napier / Hastings)</option>
+          <option value="Taranaki">Taranaki (New Plymouth / Hawera)</option>
+          <option value="Manawatu-Whanganui">Manawatū-Whanganui (Palmerston North / Whanganui)</option>
+          <option value="Wellington">Wellington (Porirua / Hutt Valley / Kapiti)</option>
+          <option value="Tasman-Nelson">Tasman / Nelson</option>
+          <option value="Marlborough">Marlborough (Blenheim / Picton)</option>
+          <option value="West Coast">West Coast</option>
+          <option value="Canterbury">Canterbury (Christchurch / Timaru / Ashburton)</option>
+          <option value="Otago">Otago (Dunedin / Queenstown / Wanaka)</option>
+          <option value="Southland">Southland (Invercargill / Gore)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section-title">
+      <span class="step-indicator">Step 2</span>
+      <h3>Excavator & Machine Specifications</h3>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="excavator-make">Excavator Make <span class="req">*</span></label>
+        <select id="excavator-make" name="excavator_make" required class="form-input form-select">
+          <option value="" disabled selected>Select manufacturer</option>
+          <option value="Kubota">Kubota</option>
+          <option value="Yanmar">Yanmar</option>
+          <option value="Hitachi">Hitachi</option>
+          <option value="Caterpillar">Caterpillar (Cat)</option>
+          <option value="Kobelco">Kobelco</option>
+          <option value="Takeuchi">Takeuchi</option>
+          <option value="Komatsu">Komatsu</option>
+          <option value="Sumitomo">Sumitomo</option>
+          <option value="Volvo">Volvo</option>
+          <option value="Hyundai">Hyundai</option>
+          <option value="Wacker Neuson">Wacker Neuson</option>
+          <option value="Sany">Sany</option>
+          <option value="Bobcat">Bobcat</option>
+          <option value="Case">Case</option>
+          <option value="JCB">JCB</option>
+          <option value="Other">Other / Custom</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="excavator-model">Excavator Model <span class="req">*</span></label>
+        <input type="text" id="excavator-model" name="excavator_model" required placeholder="e.g. U17-3, ViO25, ZX33U, 301.7" class="form-input" />
+      </div>
+
+      <div class="form-group full-width">
+        <label for="machine-tonnage">Operating Weight / Tonnage Class <span class="req">*</span></label>
+        <select id="machine-tonnage" name="machine_tonnage" required class="form-input form-select">
+          <option value="" disabled selected>Select operating weight class</option>
+          <option value="Micro: 0.8t – 1.4t">Micro: 0.8t – 1.4t</option>
+          <option value="Mini: 1.5t – 2.0t">Mini: 1.5t – 2.0t (e.g. 1.7t / 1.8t)</option>
+          <option value="Compact: 2.5t – 3.8t">Compact: 2.5t – 3.8t (e.g. 2.7t / 3.5t)</option>
+          <option value="Midi: 4.0t – 6.0t">Midi: 4.0t – 6.0t (e.g. 5.5t / 6.0t)</option>
+          <option value="Medium: 8.0t – 14.0t">Medium: 8.0t – 14.0t</option>
+          <option value="Heavy: 14.0t – 20.0t+">Heavy: 14.0t – 20.0t+</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-section-title">
+      <span class="step-indicator">Step 3</span>
+      <h3>Attachment Requirements & Measurements</h3>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="required-product">Required Attachment Product <span class="req">*</span></label>
+        <select id="required-product" name="required_product" required class="form-input form-select">
+          <option value="" disabled selected>Select required attachment</option>
+          <option value="Hydraulic Twin Ram Tilt Hitch">Hydraulic Twin Ram Tilt Hitch</option>
+          <option value="Compact Single Ram Tilt Hitch">Compact Single Ram Tilt Hitch</option>
+          <option value="Hydraulic Tilt Bucket (Direct Mount / Pin-On)">Hydraulic Tilt Bucket (Direct Mount / Pin-On)</option>
+          <option value="Heavy Duty Wide Mud / Batter Bucket">Heavy Duty Wide Mud / Batter Bucket</option>
+          <option value="Trenching / Digging Bucket">Trenching / Digging Bucket</option>
+          <option value="Rock Bucket with Teeth">Rock Bucket with Teeth</option>
+          <option value="Custom Root Rake / Landscaping Rake">Custom Root Rake / Landscaping Rake</option>
+          <option value="Tilt Rake / Grapple Combination">Tilt Rake / Grapple Combination</option>
+          <option value="Custom Engineering Build">Custom Engineering Build</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="bucket-width">Desired Width (mm, if applicable)</label>
+        <input type="number" id="bucket-width" name="bucket_width" placeholder="e.g. 900, 1000, 1200" class="form-input" min="200" max="3000" />
+      </div>
+
+      <div class="form-group">
+        <label for="pin-diameter">Pin Diameter (mm)</label>
+        <input type="number" id="pin-diameter" name="pin_diameter" placeholder="e.g. 30, 35, 40, 45" class="form-input" min="20" max="150" />
+      </div>
+
+      <div class="form-group">
+        <label for="pin-centres">Pin Centre-to-Centre (mm)</label>
+        <input type="number" id="pin-centres" name="pin_centres" placeholder="e.g. 110, 140, 180, 220" class="form-input" min="50" max="600" />
+      </div>
+
+      <div class="form-group full-width">
+        <label for="dipper-width">Dipper Arm / Ear Inside Width (mm)</label>
+        <input type="number" id="dipper-width" name="dipper_width" placeholder="e.g. 95, 110, 135, 160" class="form-input" min="50" max="500" />
+      </div>
+
+      <div class="form-group full-width">
+        <label for="work-type">Intended Type of Work <span class="req">*</span></label>
+        <select id="work-type" name="work_type" required class="form-input form-select">
+          <option value="" disabled selected>Select primary application</option>
+          <option value="General Earthmoving & Drainage">General Earthmoving & Drainage</option>
+          <option value="Sloping, Batter Trimming & Landscaping">Sloping, Batter Trimming & Landscaping</option>
+          <option value="Civil Construction & Trenching">Civil Construction & Trenching</option>
+          <option value="Forestry & Scrub / Land Clearing">Forestry & Scrub / Land Clearing</option>
+          <option value="Demolition & Heavy Rock Breaking">Demolition & Heavy Rock Breaking</option>
+          <option value="Farm Maintenance & Agricultural">Farm Maintenance & Agricultural</option>
+        </select>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="additional-notes">Additional Fitment Notes or Custom Requirements</label>
+        <textarea id="additional-notes" name="notes" rows="4" placeholder="Tell Liam about your quick hitch type, hydraulic aux lines, preferred wear plate thickness, or specific job site challenges..." class="form-input form-textarea"></textarea>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="photo-upload">Photo of Machine / Existing Bucket / Hitch Tag (Optional)</label>
+        <input type="file" id="photo-upload" name="photo" accept="image/*,.pdf" class="form-input form-file" />
+        <span class="file-hint">Upload a photo of your dipper arm, serial plate or existing hitch to fast-track verification.</span>
+      </div>
+    </div>
+
+    <!-- Form Submit Button -->
+    <div class="form-submit-wrap">
+      <button type="submit" class="btn btn-primary btn-lg submit-btn">
+        <span>Submit Fitment Quote Request</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="22" y1="2" x2="11" y2="13"></line>
+          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+        </svg>
+      </button>
+
+      <div id="form-feedback" class="form-feedback" aria-live="polite"></div>
+    </div>
+  </form>
+</div>
+
+<style>
+  .quote-wrapper {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  /* Measurement Guide Banner */
+  .measurement-guide-banner {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: 2.5rem;
+  }
+
+  .guide-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .guide-badge {
+    display: inline-block;
+    background-color: var(--color-orange-subtle);
+    border: 1px solid var(--color-orange-border);
+    color: var(--color-orange);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.65rem;
+  }
+
+  .guide-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .guide-intro {
+    font-size: 0.95rem;
+    color: var(--color-warm-white-dim);
+    margin-bottom: 0;
+  }
+
+  .measure-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .measure-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .measure-card {
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    display: flex;
+    gap: 0.85rem;
+  }
+
+  .measure-num {
+    width: 28px;
+    height: 28px;
+    background-color: var(--color-orange);
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .measure-details h4 {
+    font-size: 1.05rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-warm-white);
+  }
+
+  .measure-details p {
+    font-size: 0.82rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+
+  .disclaimer-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background-color: rgba(133, 139, 143, 0.08);
+    border: 1px solid var(--color-charcoal-border);
+    border-left: 3px solid var(--color-orange);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+    color: var(--color-steel-light);
+  }
+
+  .disclaimer-alert svg {
+    color: var(--color-orange);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .disclaimer-alert strong {
+    color: var(--color-warm-white);
+  }
+
+  /* Form Styles */
+  .quote-form {
+    background-color: var(--color-charcoal-card);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-md);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  }
+
+  .form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  .form-section-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .step-indicator {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--color-orange);
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-orange-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+  }
+
+  .form-section-title h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  label {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-warm-white);
+  }
+
+  .req {
+    color: var(--color-orange);
+  }
+
+  .form-input {
+    width: 100%;
+    background-color: var(--color-charcoal-surface);
+    border: 1px solid var(--color-charcoal-border);
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    color: var(--color-warm-white);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    min-height: 46px;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 2px rgba(242, 100, 34, 0.2);
+  }
+
+  .form-input::placeholder {
+    color: var(--color-steel-dark);
+  }
+
+  .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23858B8F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  .form-file {
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-charcoal-surface);
+    cursor: pointer;
+  }
+
+  .file-hint {
+    font-size: 0.8rem;
+    color: var(--color-steel-grey);
+  }
+
+  .form-submit-wrap {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-charcoal-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+  }
+
+  .form-feedback {
+    display: none;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .form-feedback.success {
+    display: block;
+    background-color: rgba(46, 155, 86, 0.15);
+    border: 1px solid var(--color-success);
+    color: var(--color-warm-white);
+  }
+</style>
+
+<script>
+  // Pre-fill required product from query parameter if present
+  const urlParams = new URLSearchParams(window.location.search);
+  const productParam = urlParams.get('product');
+  if (productParam) {
+    const select = document.getElementById('required-product') as HTMLSelectElement | null;
+    if (select) {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.toLowerCase().includes(productParam.toLowerCase()) || 
+            select.options[i].value.toLowerCase().includes(productParam.toLowerCase())) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  }
+
+  // Interactive client-side submission feedback
+  const form = document.getElementById('future-quote-form') as HTMLFormElement | null;
+  const feedback = document.getElementById('form-feedback');
+
+  if (form && feedback) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Simulate successful receipt of quote parameters
+      feedback.className = 'form-feedback success';
+      feedback.innerHTML = `
+        <strong>Thank you! Your quote request has been received.</strong><br/>
+        Liam will review your machine make, pin measurements, and application requirements, then get back to you shortly with confirmed fitment specifications and pricing.
+      `;
+      form.reset();
+      feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
+</script>

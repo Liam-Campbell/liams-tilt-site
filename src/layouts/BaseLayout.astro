@@ -1,0 +1,95 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: string;
+  type?: string;
+}
+
+const {
+  title = "FUTURE EQUIPMENT | Excavator Tilt Attachments & Digger Buckets NZ",
+  description = "New Zealand manufacturing of custom excavator tilt attachments and digger buckets. Built around your machine and the work you need it to do. Built to fit. Built to work.",
+  image = "/images/og-image.jpg",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://futureequipment.co.nz").href,
+  type = "website"
+} = Astro.props;
+
+const siteName = "FUTURE EQUIPMENT";
+const fullImageUrl = new URL(image, Astro.site || "https://futureequipment.co.nz").href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "FUTURE EQUIPMENT",
+  "alternateName": "Liam's Tilts / Future Equipment NZ",
+  "description": "Manufacturer of precision excavator tilt attachments and heavy-duty digger buckets in New Zealand.",
+  "url": "https://futureequipment.co.nz",
+  "telephone": "+64210000000",
+  "areaServed": {
+    "@type": "Country",
+    "name": "New Zealand"
+  },
+  "knowsAbout": [
+    "Excavator Tilt Attachments",
+    "Tilt Hitches",
+    "Digger Buckets",
+    "Excavator Buckets",
+    "Custom Attachment Fabrication",
+    "Earthmoving Equipment"
+  ],
+  "slogan": "Built to fit. Built to work."
+};
+---
+
+<!DOCTYPE html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImageUrl} />
+    <meta property="og:locale" content="en_NZ" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={fullImageUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

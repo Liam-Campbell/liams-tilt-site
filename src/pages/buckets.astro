@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+
+const bucketProducts = [
+  {
+    id: "mud-buckets",
+    name: "Heavy-Duty Wide Mud & Clean-Up Buckets",
+    category: "Buckets" as const,
+    intendedUse: "Bulk material loading, ditch cleaning, batter trimming, site preparation, and topsoil spreading across New Zealand earthmoving jobs.",
+    image: "/images/products/heavy-duty-buckets.webp",
+    imageAlt: "Heavy duty wide mud bucket for excavators",
+    suitableMachines: "0.8t to 14.0t excavators",
+    configurations: "Available in standard widths (800mm to 1600mm) or custom widths tailored to your transport trailer and machine tonnage",
+    materials: "High-strength shell steel, reinforced wrapper plate, heavy cutting edge with optional bolt-on reversible edge",
+    hydraulicReqs: "None (Direct mechanical fit to hitch or dipper arm)",
+    specs: [
+      { label: "Available Widths", value: "800mm, 900mm, 1000mm, 1200mm, 1400mm, 1500mm, 1600mm", isConfirmed: true },
+      { label: "Pin Diameter", value: "Custom bored to match machine (25mm, 30mm, 35mm, 40mm, 45mm, 50mm)", isConfirmed: true },
+      { label: "Pin Centres", value: "Factory matched to link geometry for full curling force", isConfirmed: true },
+      { label: "Dipper / Ear Width", value: "Precision dipper ear spacing with reinforced gussets", isConfirmed: true },
+      { label: "Wear Strips", value: "Longitudinal bottom wear bars for abrasive ground protection", isConfirmed: true },
+      { label: "Bucket Weight & Capacity", value: "Fabricated to balance carrying payload and machine stability", isConfirmed: false }
+    ]
+  },
+  {
+    id: "trenching-buckets",
+    name: "Trenching & General Digging Buckets",
+    category: "Buckets" as const,
+    intendedUse: "Deep trenching, service laying (power, fibre, water, wastewater), footings, and tough clay excavation.",
+    image: "/images/products/heavy-duty-buckets.webp",
+    imageAlt: "Trenching bucket with tapered profile for digging",
+    suitableMachines: "0.8t to 14.0t excavators",
+    configurations: "Narrow trench profiles from 200mm up to 600mm with side cutters and tooth adapters",
+    materials: "Heavy side plates, reinforced top beam, hardened tooth adapters and replaceable pin-on teeth",
+    hydraulicReqs: "None (Mechanical mounting)",
+    specs: [
+      { label: "Available Widths", value: "200mm, 250mm, 300mm, 400mm, 450mm, 600mm", isConfirmed: true },
+      { label: "Tapered Profile", value: "Side clearance taper to prevent clay binding and ease trench release", isConfirmed: true },
+      { label: "Pin Diameter", value: "25mm – 50mm (Bored to machine specification)", isConfirmed: true },
+      { label: "Pin Centres", value: "Optimised for breakout force and full tip clearance", isConfirmed: true },
+      { label: "Dipper / Ear Width", value: "Milled ear clearance to eliminate play on the dipper", isConfirmed: true },
+      { label: "Tooth Options", value: "Tiger teeth, standard chisel teeth, or flat bladed lip", isConfirmed: true }
+    ]
+  },
+  {
+    id: "rock-buckets",
+    name: "Heavy-Duty Rock & Demolition Buckets",
+    category: "Buckets" as const,
+    intendedUse: "Extreme digging in hard greywacke, volcanic basalt, river boulders, demolition concrete, and heavy quarry sorting.",
+    image: "/images/products/custom-builds-engineering.webp",
+    imageAlt: "Reinforced heavy rock bucket with thick wear plating",
+    suitableMachines: "2.5t to 20.0t excavators",
+    configurations: "Reinforced box headstock, thick side wear plates, heel shrouds, and heavy-duty tooth systems",
+    materials: "Extra-thick high-tensile steel, hardened lip plate, and heavy structural web gussets",
+    hydraulicReqs: "None (Mechanical mounting)",
+    specs: [
+      { label: "Available Widths", value: "Custom built to application (450mm – 1200mm)", isConfirmed: true },
+      { label: "Pin Diameter", value: "Bored to suit heavy-duty quick hitches (35mm – 65mm+)", isConfirmed: true },
+      { label: "Pin Centres", value: "Engineered to withstand heavy breakout shock loads", isConfirmed: true },
+      { label: "Ear Inside Width", value: "Heavy reinforced ear plates with dual weld passes", isConfirmed: true },
+      { label: "Reinforcement", value: "Internal and external corner gussets with heel protection bars", isConfirmed: true },
+      { label: "Wear Plate Grade", value: "Heavy wear package (Steel grade confirmed per application)", isConfirmed: false }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Digger Buckets & Excavator Buckets NZ | FUTURE EQUIPMENT"
+  description="Heavy-duty wide mud buckets, trenching buckets, and rock buckets built in New Zealand for excavators 0.8t to 20t. Precision pin fitment."
+>
+  <section class="section section-surface page-header-section">
+    <div class="container">
+      <span class="eyebrow">Product Catalog</span>
+      <h1 class="page-title">Digger Buckets</h1>
+      <p class="lead-text page-subtitle">
+        Rugged, practical excavator buckets designed and fabricated in New Zealand. Engineered with high-strength steel, tapered sides for easy discharge, and pin centres matched to your machine for maximum breakout force.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="bucket-products">
+    <div class="container">
+      <div class="section-intro-bar">
+        <div class="intro-left">
+          <h3>Excavator Bucket Range</h3>
+          <p>Choose your bucket type below or request a custom width and tooth configuration.</p>
+        </div>
+        <a href="/quote?product=Digger%20Bucket" class="btn btn-primary btn-sm">
+          <span>Get a Fitment Quote</span>
+        </a>
+      </div>
+
+      <div class="products-stack">
+        {bucketProducts.map((prod) => (
+          <ProductCard
+            id={prod.id}
+            name={prod.name}
+            category={prod.category}
+            intendedUse={prod.intendedUse}
+            image={prod.image}
+            imageAlt={prod.imageAlt}
+            suitableMachines={prod.suitableMachines}
+            configurations={prod.configurations}
+            materials={prod.materials}
+            hydraulicReqs={prod.hydraulicReqs}
+            specs={prod.specs}
+            quoteProductParam={prod.name}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header-section {
+    padding-top: clamp(2.5rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  .page-title {
+    margin-bottom: 0.75rem;
+  }
+
+  .page-subtitle {
+    max-width: 760px;
+    margin-bottom: 0;
+  }
+
+  .section-intro-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-charcoal-border);
+  }
+
+  @media (min-width: 768px) {
+    .section-intro-bar {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .intro-left h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .intro-left p {
+    font-size: 0.95rem;
+    color: var(--color-steel-light);
+    margin-bottom: 0;
+  }
+
+  .products-stack {
+    display: flex;
+    flex-direction: column;
+  }
+</style>
